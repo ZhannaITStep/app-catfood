@@ -29,6 +29,8 @@ export const MealList = () => {
           name: responseData[key].name,
           description: responseData[key].description,
           price: responseData[key].price,
+          flavor: responseData[key].flavor,
+          brand: responseData[key].brand,
         });
       }
 
@@ -65,6 +67,8 @@ export const MealList = () => {
       name={meal.name}
       description={meal.description}
       price={meal.price}
+      flavor={meal.flavor}
+      brand={meal.brand}
     />
   ));
 
