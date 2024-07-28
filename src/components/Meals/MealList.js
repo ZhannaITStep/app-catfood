@@ -116,10 +116,12 @@ export const MealList = () => {
           >
             <option value="">Все</option>
             <option value="Курица">Курица</option>
-            <option value="Лосось">Лосось</option>
+            <option value="Рыба">Рыба</option>
             <option value="Говядина">Говядина</option>
             <option value="Индейка">Индейка</option>
             <option value="Ягненок">Ягненок</option>
+            <option value="Утка">Утка</option>
+            <option value="Курица и индейка">Курица и индейка</option>
           </select>
 
           <label htmlFor="is_gluten_free">

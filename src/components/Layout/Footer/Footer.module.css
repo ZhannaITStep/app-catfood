@@ -1,0 +1,52 @@
+.footer {
+  background-color: rgba(48, 49, 49, 0.8);
+  color: white;
+  padding: 40px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.about,
+.links,
+.contact,
+.socials {
+  flex: 1;
+  margin: 0 20px;
+  min-width: 200px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: rgb(0, 0, 0);
+}
+
+.bottom {
+  text-align: center;
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
