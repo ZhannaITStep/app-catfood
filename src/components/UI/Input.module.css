@@ -1,18 +1,18 @@
 .input {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
+  display: flex; /* Использует Flexbox для выравнивания элементов внутри контейнера */
+  align-items: center; /* Центрирует элементы по вертикали */
+  margin-bottom: 1rem; /* Добавляет отступ снизу для разделения элементов */
 }
 
 .input label {
-  font-weight: bold;
-  margin-right: 1rem;
+  font-weight: bold; /* Делает текст метки жирным */
+  margin-right: 1rem; /* Добавляет отступ справа от метки */
 }
 
 .input input {
-  width: 4rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font: inherit;
-  padding-left: 1rem;
+  width: 4rem; /* Устанавливает фиксированную ширину для поля ввода */
+  border-radius: 5px; /* Закругляет углы поля ввода */
+  border: 1px solid #ccc; /* Добавляет серую границу */
+  font: inherit; /* Наследует шрифт родителя */
+  padding-left: 1rem; /* Добавляет отступ слева внутри поля ввода */
 }

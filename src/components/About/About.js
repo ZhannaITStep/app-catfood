@@ -2,9 +2,19 @@ import React from "react";
 import styles from "./About.module.css";
 
 export const About = () => {
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className={styles.container}>
-      <h1>О компании</h1>
+      <h1 onClick={handleClick} style={{ cursor: "pointer" }}>
+        О компании
+      </h1>
       <p>
         Cat Food Shop — это ваш надежный поставщик качественного корма для
         кошек. Мы работаем с лучшими производителями, чтобы предоставить вам и

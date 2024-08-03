@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.about}>
+        <div className={styles.column}>
           <h2>О нас</h2>
           <p>
             Мы - ваш лучший источник качественного корма для кошек. Мы заботимся
@@ -14,7 +14,7 @@ export const Footer = () => {
           </p>
         </div>
 
-        <div className={styles.links}>
+        <div className={styles.column}>
           <h2>Информация</h2>
           <ul>
             <li>
@@ -29,13 +29,15 @@ export const Footer = () => {
           </ul>
         </div>
 
-        <div className={styles.contact}>
+        <div className={styles.column}>
           <h2>Контакты</h2>
           <p>Email: support@catfoodshop.com</p>
-          <p>Телефон: +1 (555) 123-4567</p>
+          <p>
+            Телефон: <a href="tel:+15551234567">+1 (555) 123-4567</a>
+          </p>
         </div>
 
-        <div className={styles.socials}>
+        <div className={styles.column}>
           <h2>Следите за нами</h2>
           <ul>
             <li>
@@ -54,15 +56,6 @@ export const Footer = () => {
                 rel="noopener noreferrer"
               >
                 Instagram
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter
               </a>
             </li>
           </ul>

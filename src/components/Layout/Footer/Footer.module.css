@@ -1,7 +1,7 @@
 .footer {
   background-color: rgba(48, 49, 49, 0.8);
   color: white;
-  padding: 40px 0;
+  padding-top: 40px;
 }
 
 .container {
@@ -13,13 +13,9 @@
   flex-wrap: wrap;
 }
 
-.about,
-.links,
-.contact,
-.socials {
+.column {
   flex: 1;
-  margin: 0 20px;
-  min-width: 200px;
+  padding: 1em;
 }
 
 h2 {
@@ -49,4 +45,30 @@ a:hover {
   text-align: center;
   padding: 20px 0;
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Медиа-запрос для адаптации к экранам меньше 350px */
+@media (max-width: 350px) {
+  .container {
+    flex-direction: column; /* Вертикальное расположение столбцов */
+    padding: 0 10px; /* Уменьшаем отступы по бокам */
+  }
+
+  .column {
+    padding: 1em 0; /* Увеличиваем вертикальные отступы для лучшего восприятия */
+    flex: none; /* Убираем равномерное распределение */
+    width: 100%; /* Ширина столбцов на 100% */
+  }
+
+  h2 {
+    font-size: 1.2rem; /* Уменьшаем размер заголовка */
+  }
+
+  li {
+    margin: 5px 0; /* Уменьшаем отступы для элементов списка */
+  }
+
+  .bottom {
+    padding: 10px 0; /* Уменьшаем отступы снизу и сверху */
+  }
 }

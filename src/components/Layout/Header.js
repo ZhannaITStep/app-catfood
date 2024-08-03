@@ -3,12 +3,29 @@ import catsImage from "../../assets/cats.jpg";
 import iconCatFood from "../../assets/icon-cat-food.png";
 import styles from "./Header.module.css";
 import { HeaderCartButton } from "./HeaderCartButton";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Header = (props) => {
+  const navigate = useNavigate();
+  const onClick = () => {
+    navigate("/");
+    window.scrollTo({
+      top: document.body.offsetHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <React.Fragment>
-      <header className={styles.header}>
-        <img src={iconCatFood} alt="Icon Description" className={styles.icon} />
+      <header className={styles.header} onClick={onClick}>
+        <Link to="/">
+          <img
+            src={iconCatFood}
+            alt="Icon Description"
+            className={styles.icon}
+          />
+        </Link>
         <HeaderCartButton onClick={props.onShowCart} />
       </header>
       <div className={styles["main-image"]}>

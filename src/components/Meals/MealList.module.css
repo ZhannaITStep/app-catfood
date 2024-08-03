@@ -32,6 +32,7 @@
 .filters label {
   margin: 0.5rem 0;
   font-weight: bold;
+  color: white;
 }
 
 .filters select {
@@ -44,30 +45,6 @@
 
 .filters select:hover {
   border-color: #888;
-}
-
-.filters input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
-
-.filters div {
-  display: flex;
-  align-items: center;
-  margin: 0.5rem 0;
-}
-
-.filters div label {
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-.filters div input {
-  cursor: pointer;
-}
-
-.filters div input[type="checkbox"]:checked {
-  transition: background-color 0.3s ease;
 }
 
 @keyframes meals-appear {
@@ -91,5 +68,27 @@
   .filters select {
     width: 30%;
     margin: 0 0.5rem;
+  }
+}
+
+/* Медиа-запрос для адаптации к экранам меньше 350px */
+@media (max-width: 350px) {
+  .filters {
+    flex-direction: column; /* Убираем горизонтальное расположение */
+    align-items: stretch; /* Элементы будут растягиваться на всю ширину */
+  }
+
+  .filters label {
+    font-size: 0.8rem; /* Уменьшаем шрифт для меток */
+  }
+
+  .filters select {
+    width: 100%; /* Задаем 100% ширину для выпадающих списков */
+    font-size: 0.9rem; /* Немного уменьшаем размер шрифта для селектов */
+    padding: 0.3rem; /* Уменьшаем отступы */
+  }
+
+  .meals {
+    margin: 1rem; /* Уменьшаем отступы */
   }
 }

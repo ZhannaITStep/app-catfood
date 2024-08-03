@@ -11,8 +11,9 @@ export const MealList = () => {
   // Состояния для фильтров
   const [brandFilter, setBrandFilter] = useState("");
   const [flavorFilter, setFlavorFilter] = useState("");
-  const [isGlutenFreeFilter, setIsGlutenFreeFilter] = useState(false);
-  const [isOrganicFilter, setIsOrganicFilter] = useState(false);
+
+  // Состояние для сортировки
+  const [sortOrder, setSortOrder] = useState("asc"); // "asc" для по возрастанию, "desc" для по убыванию
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -36,8 +37,6 @@ export const MealList = () => {
           price: responseData[key].price,
           flavor: responseData[key].flavor,
           brand: responseData[key].brand,
-          is_gluten_free: responseData[key].is_gluten_free,
-          is_organic: responseData[key].is_organic,
         });
       }
 
@@ -70,10 +69,15 @@ export const MealList = () => {
   const filteredMeals = meals.filter((meal) => {
     const matchesBrand = brandFilter ? meal.brand === brandFilter : true;
     const matchesFlavor = flavorFilter ? meal.flavor === flavorFilter : true;
-    const matchesGlutenFree = isGlutenFreeFilter ? meal.is_gluten_free : true;
-    const matchesOrganic = isOrganicFilter ? meal.is_organic : true;
 
-    return matchesBrand && matchesFlavor && matchesGlutenFree && matchesOrganic;
+    return matchesBrand && matchesFlavor;
+  });
+
+  // Сортировка отфильтрованных блюд
+  filteredMeals.sort((a, b) => {
+    return sortOrder === "asc"
+      ? a.price - b.price // Сортировка по возрастанию
+      : b.price - a.price; // Сортировка по убыванию
   });
 
   const mealList = filteredMeals.map((meal) => (
@@ -85,8 +89,6 @@ export const MealList = () => {
       price={meal.price}
       flavor={meal.flavor}
       brand={meal.brand}
-      isGlutenFree={meal.is_gluten_free}
-      isOrganic={meal.is_organic}
     />
   ));
 
@@ -124,25 +126,16 @@ export const MealList = () => {
             <option value="Курица и индейка">Курица и индейка</option>
           </select>
 
-          <label htmlFor="is_gluten_free">
-            <input
-              type="checkbox"
-              id="is_gluten_free"
-              checked={isGlutenFreeFilter}
-              onChange={(e) => setIsGlutenFreeFilter(e.target.checked)}
-            />
-            Безглютеновый
-          </label>
-
-          <label htmlFor="is_organic">
-            <input
-              type="checkbox"
-              id="is_organic"
-              checked={isOrganicFilter}
-              onChange={(e) => setIsOrganicFilter(e.target.checked)}
-            />
-            Органический
-          </label>
+          {/* Элемент управления для сортировки */}
+          <label htmlFor="sortOrder">Сортировка по цене:</label>
+          <select
+            id="sortOrder"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value="asc">По возрастанию</option>
+            <option value="desc">По убыванию</option>
+          </select>
         </div>
 
         <ul>{mealList}</ul>

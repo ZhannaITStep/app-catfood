@@ -2,9 +2,21 @@ import React from "react";
 import styles from "./Terms.module.css";
 
 export const Terms = () => {
+  // Функция для прокрутки к началу страницы
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className={styles.terms}>
-      <h1>Условия обслуживания</h1>
+      {/* Добавляем onClick к заголовку h1 */}
+      <h1 onClick={handleScrollToTop} style={{ cursor: "pointer" }}>
+        Условия обслуживания
+      </h1>
       <p>
         Добро пожаловать в наш магазин! Пожалуйста, ознакомьтесь с нашими
         условиями обслуживания, представленными ниже:
