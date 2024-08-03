@@ -13,7 +13,10 @@ export const MealList = () => {
   const [flavorFilter, setFlavorFilter] = useState("");
 
   // Состояние для сортировки
-  const [sortOrder, setSortOrder] = useState("asc"); // "asc" для по возрастанию, "desc" для по убыванию
+  const [sortOrder, setSortOrder] = useState("asc");
+
+  // Состояние для видимости стрелки
+  const [showScrollUp, setShowScrollUp] = useState(false);
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -50,6 +53,29 @@ export const MealList = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Отображаем стрелку, когда прокручиваем вниз больше 200 пикселей
+      if (window.scrollY > 200) {
+        setShowScrollUp(true);
+      } else {
+        setShowScrollUp(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   if (isLoading) {
     return (
       <section className={styles.loading}>
@@ -69,15 +95,11 @@ export const MealList = () => {
   const filteredMeals = meals.filter((meal) => {
     const matchesBrand = brandFilter ? meal.brand === brandFilter : true;
     const matchesFlavor = flavorFilter ? meal.flavor === flavorFilter : true;
-
     return matchesBrand && matchesFlavor;
   });
 
-  // Сортировка отфильтрованных блюд
   filteredMeals.sort((a, b) => {
-    return sortOrder === "asc"
-      ? a.price - b.price // Сортировка по возрастанию
-      : b.price - a.price; // Сортировка по убыванию
+    return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
   });
 
   const mealList = filteredMeals.map((meal) => (
@@ -95,7 +117,6 @@ export const MealList = () => {
   return (
     <section className={styles.meals}>
       <Card>
-        {/* Форма фильтрации */}
         <div className={styles.filters}>
           <label htmlFor="brand">Бренд:</label>
           <select
@@ -126,7 +147,6 @@ export const MealList = () => {
             <option value="Курица и индейка">Курица и индейка</option>
           </select>
 
-          {/* Элемент управления для сортировки */}
           <label htmlFor="sortOrder">Сортировка по цене:</label>
           <select
             id="sortOrder"
@@ -140,6 +160,17 @@ export const MealList = () => {
 
         <ul>{mealList}</ul>
       </Card>
+
+      {/* Стрелка для прокрутки вверх */}
+      {showScrollUp && (
+        <button
+          className={styles.scrollUp}
+          onClick={scrollToTop}
+          aria-label="Прокрутить вверх"
+        >
+          &#8593;
+        </button>
+      )}
     </section>
   );
 };
