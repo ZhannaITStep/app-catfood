@@ -31,7 +31,10 @@ export const Footer = () => {
 
         <div className={styles.column}>
           <h2>Контакты</h2>
-          <p>Email: support@catfoodshop.com</p>
+          <p>
+            Email:{" "}
+            <a href="mailto:support@catfoodshop.com">support@catfoodshop.com</a>
+          </p>
           <p>
             Телефон: <a href="tel:+15551234567">+1 (555) 123-4567</a>
           </p>
