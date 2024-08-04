@@ -38,6 +38,9 @@
 
 .bump {
   animation: bump 300ms ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: both;
 }
 
 @keyframes bump {

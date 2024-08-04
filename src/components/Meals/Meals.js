@@ -4,9 +4,9 @@ import React from "react";
 
 export const Meals = () => {
   return (
-    <React.Fragment>
+    <main>
       <PromoText />
       <MealList />
-    </React.Fragment>
+    </main>
   );
 };

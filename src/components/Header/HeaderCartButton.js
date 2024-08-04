@@ -3,35 +3,29 @@ import { CartContext } from "../../store/cart-context";
 import { CartIcon } from "../Cart/CartIcon";
 import styles from "./HeaderCartButton.module.css";
 
-export const HeaderCartButton = (props) => {
+export const HeaderCartButton = ({ onClick }) => {
   const [isButtonAnimated, setIsButtonAnimated] = useState(false);
-  const cartContext = useContext(CartContext);
+  const { items } = useContext(CartContext);
 
-  const cartItemsNumber = cartContext.items.reduce((currentValue, item) => {
-    return currentValue + item.amount;
-  }, 0);
+  // Подсчёт количества товаров в корзине
+  const cartItemsNumber = items.reduce((total, item) => total + item.amount, 0);
 
+  // Определение класса кнопки с учётом анимации
   const buttonClasses = `${styles.button} ${
     isButtonAnimated ? styles.bump : ""
   }`;
 
   useEffect(() => {
-    if (cartContext.items.length === 0) {
-      return;
-    }
+    if (items.length === 0) return;
+
     setIsButtonAnimated(true);
+    const timer = setTimeout(() => setIsButtonAnimated(false), 300);
 
-    const timer = setTimeout(() => {
-      setIsButtonAnimated(false);
-    }, 300);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [cartContext.items]);
+    return () => clearTimeout(timer);
+  }, [items]);
 
   return (
-    <button className={buttonClasses} onClick={props.onClick}>
+    <button className={buttonClasses} onClick={onClick}>
       <span className={styles.icon}>
         <CartIcon />
       </span>
