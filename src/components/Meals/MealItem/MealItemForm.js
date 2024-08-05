@@ -2,24 +2,25 @@ import { useRef, useState } from "react";
 import { Input } from "../../UI/Input";
 import styles from "./MealItemForm.module.css";
 
-export const MealItemForm = (props) => {
+export const MealItemForm = ({ id, onAddToCart }) => {
   const [isAmountValid, setIsAmountValid] = useState(true);
   const amountInputRef = useRef();
+
+  const validateAmount = (amount) => {
+    return amount.trim().length > 0 && amount >= 1 && amount <= 10;
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
 
     const inputAmount = amountInputRef.current.value;
-    if (
-      inputAmount.trim().length === 0 ||
-      +inputAmount < 1 ||
-      +inputAmount > 10
-    ) {
+    if (!validateAmount(inputAmount)) {
       setIsAmountValid(false);
       return;
     }
 
-    props.onAddToCart(+inputAmount);
+    onAddToCart(Number(inputAmount));
+    setIsAmountValid(true); // Сброс валидности после успешного добавления
   };
 
   return (
@@ -28,7 +29,7 @@ export const MealItemForm = (props) => {
         ref={amountInputRef}
         label="Количество"
         input={{
-          id: props.id,
+          id,
           type: "number",
           min: "1",
           step: "1",
@@ -36,7 +37,7 @@ export const MealItemForm = (props) => {
         }}
       />
       <button>Добавить</button>
-      {!isAmountValid && <p>Пожалуйста введите количество от 1 до 10</p>}
+      {!isAmountValid && <p>Пожалуйста, введите количество от 1 до 10</p>}
     </form>
   );
 };

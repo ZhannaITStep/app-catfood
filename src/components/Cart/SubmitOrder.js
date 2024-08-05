@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "./SubmitOrder.module.css";
 
+// Функция для проверки валидности входных данных
 const isInputValid = (inputValue) => inputValue.trim() !== "";
 
 export const SubmitOrder = (props) => {
@@ -17,58 +18,50 @@ export const SubmitOrder = (props) => {
   const confirmOrderHandler = (event) => {
     event.preventDefault();
 
-    const enteredName = nameInputRef.current.value;
-    const enteredCity = cityInputRef.current.value;
-    const enteredAddress = addressInputRef.current.value;
+    const enteredValues = {
+      name: nameInputRef.current.value,
+      city: cityInputRef.current.value,
+      address: addressInputRef.current.value,
+    };
 
-    const isEnteredNameValid = isInputValid(enteredName);
-    const isEnteredCityValid = isInputValid(enteredCity);
-    const isEnteredAddressValid = isInputValid(enteredAddress);
+    // Проверка валидности всех полей
+    const newFormValidity = {
+      name: isInputValid(enteredValues.name),
+      city: isInputValid(enteredValues.city),
+      address: isInputValid(enteredValues.address),
+    };
 
-    setFormValidity({
-      name: isEnteredNameValid,
-      city: isEnteredCityValid,
-      address: isEnteredAddressValid,
-    });
+    setFormValidity(newFormValidity);
 
-    const isFormValid =
-      isEnteredNameValid && isEnteredCityValid && isEnteredAddressValid;
+    const isFormValid = Object.values(newFormValidity).every(
+      (isValid) => isValid
+    );
 
     if (!isFormValid) {
       return;
     }
 
     // Отправка данных на сервер
-    props.onSubmit({
-      name: enteredName,
-      city: enteredCity,
-      address: enteredAddress,
-    });
+    props.onSubmit(enteredValues);
   };
 
-  const nameInputClasses = `${styles.control} ${
-    formValidity.name ? "" : styles.invalid
-  }`;
-  const cityInputClasses = `${styles.control} ${
-    formValidity.city ? "" : styles.invalid
-  }`;
-  const addressInputClasses = `${styles.control} ${
-    formValidity.address ? "" : styles.invalid
-  }`;
+  // Функция для задания классов на основе валидности
+  const getInputClasses = (field) =>
+    `${styles.control} ${formValidity[field] ? "" : styles.invalid}`;
 
   return (
     <form className={styles.form} onSubmit={confirmOrderHandler}>
-      <div className={nameInputClasses}>
+      <div className={getInputClasses("name")}>
         <label htmlFor="name">Имя</label>
         <input type="text" id="name" ref={nameInputRef} />
         {!formValidity.name && <p>Пожалуйста введите имя</p>}
       </div>
-      <div className={cityInputClasses}>
+      <div className={getInputClasses("city")}>
         <label htmlFor="city">Город</label>
         <input type="text" id="city" ref={cityInputRef} />
         {!formValidity.city && <p>Пожалуйста введите название города</p>}
       </div>
-      <div className={addressInputClasses}>
+      <div className={getInputClasses("address")}>
         <label htmlFor="address">Адрес</label>
         <input type="text" id="address" ref={addressInputRef} />
         {!formValidity.address && <p>Пожалуйста введите адрес</p>}
