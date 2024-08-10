@@ -1,20 +1,22 @@
 .form {
-  text-align: right; /* Выравнивает текст внутри формы по правому краю */
+  text-align: right;
 }
 
 .form button {
-  font: inherit; /* Наследует шрифт от родительского элемента */
-  cursor: pointer; /* Показывает указатель при наведении на кнопку */
-  background-color: #ffa500; /* Устанавливает цвет фона кнопки (оранжевый) */
-  border: 1px solid #ffa500; /* Устанавливает границу, совпадающую с фоном */
-  color: white; /* Устанавливает цвет текста кнопки (белый) */
-  padding: 0.25rem 2rem; /* Устанавливает внутренние отступы кнопки */
-  border-radius: 20px; /* Закругляет углы кнопки */
-  font-weight: bold; /* Устанавливает жирный шрифт для текста кнопки */
+  font: inherit;
+  cursor: pointer;
+  background-color: #ffa500;
+  border: 1px solid #ffa500;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .form button:hover,
 .form button:active {
-  background-color: #b57b10; /* Меняет цвет фона на более темный оранжевый при наведении и нажатии */
-  border-color: #b57b10; /* Меняет цвет границы на более темный оранжевый при наведении и нажатии */
+  background-color: #b57b10;
+  border-color: #b57b10;
+  transform: scale(1.05);
 }

@@ -1,40 +1,105 @@
 .header {
-  position: fixed; /* Фиксирует заголовок в верхней части страницы */
-  top: 0; /* Устанавливает верхнюю границу заголовка */
-  left: 0; /* Устанавливает левую границу заголовка */
-  width: 100%; /* Задает ширину заголовка на всю ширину экрана */
-  height: 5rem; /* Устанавливает высоту заголовка */
-  color: #65edc2; /* Устанавливает цвет текста заголовка */
-  display: flex; /* Использует Flexbox для расположения элементов внутри заголовка */
-  justify-content: space-between; /* Размещает элементы по сторонам заголовка */
-  align-items: center; /* Центрирует элементы по вертикали */
-  padding: 0 10%; /* Добавляет горизонтальные отступы по 10% */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); /* Добавляет тень для эффекта поднятости */
-  z-index: 10; /* Устанавливает порядок наложения, чтобы заголовок был выше других элементов */
-  opacity: 0.8; /* Устанавливает чуть прозрачный фон для заголовка */
-  background: -webkit-linear-gradient(
-    45deg,
-    rgb(48, 49, 49),
-    rgb(0, 0, 0) 80%
-  ); /* Устанавливает градиентный фон */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  color: #65edc2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  opacity: 0.8;
+  background: linear-gradient(45deg, rgb(48, 49, 49), rgb(0, 0, 0) 80%);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main-image {
-  width: 100%; /* Задает ширину для основного изображения на всю ширину контейнера */
-  height: 25rem; /* Устанавливает высоту для основного изображения */
-  margin-top: 5rem; /* Добавляет отступ сверху, чтобы избежать перекрытия заголовком */
-  z-index: 0; /* Устанавливает порядок наложения изображения ниже заголовка */
-  overflow: hidden; /* Скрывает переполнение изображения, если оно выходит за границы контейнера */
+  width: 100%;
+  height: 25rem;
+  margin-top: 5rem;
+  z-index: 0;
+  overflow: hidden;
 }
 
 .main-image img {
-  width: 100%; /* Задает ширину изображения на 100% родительского контейнера */
-  height: 100%; /* Задает высоту изображения на 100% родительского контейнера */
-  object-fit: cover; /* Заполняет изображение, сохраняя его пропорции и обрезая излишки */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.headerActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .icon {
-  width: 50px; /* Устанавливает ширину иконок */
-  height: 50px; /* Устанавливает высоту иконок */
+  width: 50px;
+  height: 50px;
   cursor: pointer;
+}
+
+.authButton {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #ffa500;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-left: 1rem;
+}
+
+.authButton:hover,
+.authButton:active {
+  background-color: #b57b10;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 0 5%;
+  }
+
+  .headerActions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .authButton {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .header {
+    height: 4rem;
+  }
+
+  .main-image {
+    height: 20rem;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .authButton {
+    padding: 0.3rem 1rem;
+    font-size: 0.75rem;
+  }
 }

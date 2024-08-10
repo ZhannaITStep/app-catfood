@@ -122,10 +122,7 @@ export const MealList = () => {
 
         <ul>
           {filteredMeals.map((meal) => (
-            <MealItem
-              key={meal.id}
-              {...meal} // Передаем все свойства с помощью деструктуризации
-            />
+            <MealItem key={meal.id} {...meal} />
           ))}
         </ul>
       </Card>

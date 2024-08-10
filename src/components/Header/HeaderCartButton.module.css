@@ -15,6 +15,7 @@
 .button:hover,
 .button:active {
   background-color: #b57b10;
+  transform: scale(1.05);
 }
 
 .icon {
@@ -61,23 +62,22 @@
   }
 }
 
-/* Медиа-запрос для адаптации к экранам меньше 350px */
 @media (max-width: 350px) {
   .button {
-    padding: 0.4rem 2rem; /* Уменьшаем отступы для кнопок */
-    font-size: 0.9rem; /* Уменьшаем размер шрифта */
-    border-radius: 20px; /* Уменьшаем радиус скругления */
+    padding: 0.4rem 2rem;
+    font-size: 0.9rem;
+    border-radius: 20px;
   }
 
   .icon {
-    width: 1.2rem; /* Уменьшаем размер значка */
-    height: 1.2rem; /* Уменьшаем размер значка */
-    margin-right: 0.5rem; /* Уменьшаем отступ справа */
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.5rem;
   }
 
   .badge {
-    padding: 0.2rem 0.5rem; /* Уменьшаем отступы для бейджа */
-    font-size: 0.8rem; /* Уменьшаем размер шрифта для бейджа */
-    margin-left: 1rem; /* Уменьшаем отступ слева */
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    margin-left: 1rem;
   }
 }

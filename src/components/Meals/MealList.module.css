@@ -51,33 +51,24 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: linear-gradient(
-    135deg,
-    #ffa500,
-    #ff4500
-  ); /* Оранжевый градиент */
+  background: linear-gradient(135deg, #ffa500, #ff4500);
   border: none;
-  border-radius: 50%; /* Кнопка круглая */
-  width: 60px; /* Ширина кнопки */
-  height: 60px; /* Высота кнопки */
-  font-size: 40px; /* Размер шрифта */
-  color: white; /* Цвет текста */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  color: white;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Глубина тени */
-  transition: background-color 0.3s, transform 0.2s; /* Плавный переход цвета и размера */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Эффект при наведении */
 .scrollUp:hover {
-  background: linear-gradient(
-    135deg,
-    #ff8c00,
-    #ff6347
-  ); /* Более светлый оттенок градиента при наведении */
-  transform: scale(1.1); /* Увеличение размера при наведении */
+  background: linear-gradient(135deg, #ff8c00, #ff6347);
+  transform: scale(1.1);
 }
 
 @keyframes meals-appear {
@@ -104,24 +95,23 @@
   }
 }
 
-/* Медиа-запрос для адаптации к экранам меньше 350px */
 @media (max-width: 350px) {
   .filters {
-    flex-direction: column; /* Убираем горизонтальное расположение */
-    align-items: stretch; /* Элементы будут растягиваться на всю ширину */
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .filters label {
-    font-size: 0.8rem; /* Уменьшаем шрифт для меток */
+    font-size: 0.8rem;
   }
 
   .filters select {
-    width: 100%; /* Задаем 100% ширину для выпадающих списков */
-    font-size: 0.9rem; /* Немного уменьшаем размер шрифта для селектов */
-    padding: 0.3rem; /* Уменьшаем отступы */
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.3rem;
   }
 
   .meals {
-    margin: 1rem; /* Уменьшаем отступы */
+    margin: 1rem;
   }
 }
