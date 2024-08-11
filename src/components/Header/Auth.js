@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDOM from "react-dom"; // Импортируем ReactDOM для использования портала
 import { auth } from "../../firebase";
 import {
   createUserWithEmailAndPassword,
@@ -29,7 +30,8 @@ const Auth = ({ onClose }) => {
     }
   };
 
-  return (
+  // Создаём портал для модального окна
+  return ReactDOM.createPortal(
     <div className="auth-modal" onClick={onClose}>
       <div className="auth-container" onClick={(e) => e.stopPropagation()}>
         <h2 className="auth-title">{isLoginMode ? "Вход" : "Регистрация"}</h2>
@@ -56,7 +58,8 @@ const Auth = ({ onClose }) => {
           Переключиться на {isLoginMode ? "Регистрацию" : "Вход"}
         </button>
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal-root") // Указываем, где рендерить портал
   );
 };
 

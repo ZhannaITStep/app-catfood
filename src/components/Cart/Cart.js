@@ -1,10 +1,10 @@
-import { Modal } from "../UI/Modal";
-import styles from "./Cart.module.css";
 import { useContext, useState } from "react";
+import ReactDOM from "react-dom";
 import { CartContext } from "../../store/cart-context";
 import { CartItem } from "./CartItem";
 import { SubmitOrder } from "./SubmitOrder";
-import React from "react";
+import styles from "./Cart.module.css";
+import { Modal } from "../UI/Modal";
 
 export const Cart = (props) => {
   const [isSubmitOrderAvailable, setIsSubmitOrderAvailable] = useState(false);
@@ -81,7 +81,7 @@ export const Cart = (props) => {
     </>
   );
 
-  return (
+  const cartModal = (
     <Modal onHideCart={props.onHideCart}>
       {!isDataSubmitting && !wasDataSendingSuccessful && cartModalContent}
       {isDataSubmitting && <p>Отправка данных заказа...</p>}
@@ -99,5 +99,10 @@ export const Cart = (props) => {
         </>
       )}
     </Modal>
+  );
+
+  return ReactDOM.createPortal(
+    cartModal,
+    document.getElementById("modal-root")
   );
 };
