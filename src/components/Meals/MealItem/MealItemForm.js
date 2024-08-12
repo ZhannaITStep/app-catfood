@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Input } from "../../UI/Input";
+import { Input } from "../../Input/Input";
 import styles from "./MealItemForm.module.css";
 
 export const MealItemForm = ({ id, onAddToCart }) => {

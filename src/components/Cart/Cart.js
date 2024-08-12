@@ -4,7 +4,7 @@ import { CartContext } from "../../context/cart-context";
 import { CartItem } from "./CartItem";
 import { SubmitOrder } from "./SubmitOrder";
 import styles from "./Cart.module.css";
-import { Modal } from "../UI/Modal";
+import { Modal } from "../Modal/Modal";
 
 export const Cart = (props) => {
   const [isSubmitOrderAvailable, setIsSubmitOrderAvailable] = useState(false);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./MealList.module.css";
-import { Card } from "../UI/Card";
+import { Card } from "../Card/Card";
 import { MealItem } from "./MealItem/MealItem";
 
 export const MealList = () => {
