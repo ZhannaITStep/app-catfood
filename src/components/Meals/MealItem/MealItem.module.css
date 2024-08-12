@@ -23,3 +23,9 @@
   color: #ffa500;
   font-size: 1.3rem;
 }
+
+@media screen and (max-width: 420px) {
+  .meal {
+    flex-wrap: wrap;
+  }
+}

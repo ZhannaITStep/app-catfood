@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import catsImage from "../../assets/cats.jpg";
 import iconCatFood from "../../assets/icon-cat-food.png";
@@ -7,9 +7,11 @@ import { HeaderCartButton } from "./HeaderCartButton";
 import { auth } from "../../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import Auth from "./Auth";
+import { CartContext } from "../../context/cart-context";
 
 export const Header = ({ onShowCart }) => {
   const navigate = useNavigate();
+  const { clearCart } = useContext(CartContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
 
@@ -34,6 +36,7 @@ export const Header = ({ onShowCart }) => {
   const handleLogout = async () => {
     await signOut(auth);
     setIsLoggedIn(false); // Сброс флага авторизации при выходе
+    clearCart();
   };
 
   return (

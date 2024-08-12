@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Cart } from "./components/Cart/Cart";
 import { Meals } from "./components/Meals/Meals";
-import { CartContextProvider } from "./store/CartContextProvider";
+import { CartContextProvider } from "./context/CartContextProvider";
 import { About } from "./components/About/About";
 import { Terms } from "./components/Terms/Terms";
 import { Privacy } from "./components/Privacy/Privacy";

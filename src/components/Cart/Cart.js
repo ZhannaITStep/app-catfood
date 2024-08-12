@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import ReactDOM from "react-dom";
-import { CartContext } from "../../store/cart-context";
+import { CartContext } from "../../context/cart-context";
 import { CartItem } from "./CartItem";
 import { SubmitOrder } from "./SubmitOrder";
 import styles from "./Cart.module.css";
