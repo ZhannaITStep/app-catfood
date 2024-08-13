@@ -50,7 +50,7 @@ export const Header = ({ onShowCart }) => {
           />
         </Link>
         <div className={styles.headerActions}>
-          <HeaderCartButton onClick={onShowCart} />
+          {isLoggedIn && <HeaderCartButton onClick={onShowCart} />}
           {isLoggedIn ? (
             <button className={styles.authButton} onClick={handleLogout}>
               Выйти
