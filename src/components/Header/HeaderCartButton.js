@@ -7,26 +7,21 @@ export const HeaderCartButton = ({ onClick }) => {
   const [isButtonAnimated, setIsButtonAnimated] = useState(false);
   const { items } = useContext(CartContext);
 
-  // Используем useMemo для оптимизации подсчета количества товаров в корзине.
   const cartItemsNumber = useMemo(
     () => items.reduce((total, item) => total + item.amount, 0),
     [items]
   );
 
-  // Определяем классы для кнопки с учетом анимации.
   const buttonClasses = `${styles.button} ${
     isButtonAnimated ? styles.bump : ""
   }`;
 
   useEffect(() => {
-    // Если корзина пуста, анимация не требуется
     if (items.length === 0) return;
 
-    // Включаем анимацию кнопки
     setIsButtonAnimated(true);
     const timer = setTimeout(() => setIsButtonAnimated(false), 300);
 
-    // Очищаем таймер при размонтировании компонента или изменении items
     return () => clearTimeout(timer);
   }, [items]);
 

@@ -35,7 +35,7 @@ export const Header = ({ onShowCart }) => {
 
   const handleLogout = async () => {
     await signOut(auth);
-    setIsLoggedIn(false); // Сброс флага авторизации при выходе
+    setIsLoggedIn(false);
     clearCart();
   };
 

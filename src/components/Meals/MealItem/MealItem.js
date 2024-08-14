@@ -6,10 +6,8 @@ import { CartContext } from "../../../context/cart-context";
 export const MealItem = ({ id, name, description, flavor, brand, price }) => {
   const cartContext = useContext(CartContext);
 
-  // Форматируем цену, если она есть
   const formattedPrice = price ? `$${price.toFixed(2)}` : "";
 
-  // Обработчик добавления товара в корзину
   const addToCartHandler = (amount) => {
     cartContext.addItem({ id, name, amount, price });
   };

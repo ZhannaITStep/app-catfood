@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Terms.module.css";
 
 export const Terms = () => {
-  // Функция для прокрутки к началу страницы
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -13,7 +12,6 @@ export const Terms = () => {
 
   return (
     <div className={styles.terms}>
-      {/* Добавляем onClick к заголовку h1 */}
       <h1 onClick={handleScrollToTop} style={{ cursor: "pointer" }}>
         Условия обслуживания
       </h1>

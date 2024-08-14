@@ -14,19 +14,15 @@ const firebaseConfig = {
   measurementId: "G-MF5L5RPJ2C",
 };
 
-// Инициализация Firebase
 const app = initializeApp(firebaseConfig);
 
-// Инициализация аналитики только в браузерной среде
 let analytics;
 if (typeof window !== "undefined") {
   analytics = getAnalytics(app);
 }
 
-// Инициализация Realtime Database
 const database = getDatabase(app);
 
-// Инициализация аутентификации
 const auth = getAuth(app);
 
 export { app, analytics, database, auth };

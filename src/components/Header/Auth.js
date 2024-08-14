@@ -11,11 +11,11 @@ const Auth = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoginMode, setIsLoginMode] = useState(true);
-  const [errorMessage, setErrorMessage] = useState(""); // Для отображения сообщений об ошибках
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(""); // Сбрасываем сообщение об ошибке перед отправкой
+    setErrorMessage("");
     try {
       if (isLoginMode) {
         await signInWithEmailAndPassword(auth, email, password);
@@ -55,7 +55,6 @@ const Auth = ({ onClose }) => {
             {isLoginMode ? "Войти" : "Создать аккаунт"}
           </button>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-          {/* Отображаем сообщение об ошибке */}
         </form>
         <button onClick={() => setIsLoginMode((prev) => !prev)}>
           Переключиться на {isLoginMode ? "Регистрацию" : "Вход"}

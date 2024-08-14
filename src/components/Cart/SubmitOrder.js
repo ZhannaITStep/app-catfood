@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import styles from "./SubmitOrder.module.css";
 
-// Функция для проверки валидности входных данных
 const isInputValid = (inputValue) => inputValue.trim() !== "";
 
 export const SubmitOrder = (props) => {
@@ -24,7 +23,6 @@ export const SubmitOrder = (props) => {
       address: addressInputRef.current.value,
     };
 
-    // Проверка валидности всех полей
     const newFormValidity = {
       name: isInputValid(enteredValues.name),
       city: isInputValid(enteredValues.city),
@@ -41,11 +39,9 @@ export const SubmitOrder = (props) => {
       return;
     }
 
-    // Отправка данных на сервер
     props.onSubmit(enteredValues);
   };
 
-  // Функция для задания классов на основе валидности
   const getInputClasses = (field) =>
     `${styles.control} ${formValidity[field] ? "" : styles.invalid}`;
 

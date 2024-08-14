@@ -27,7 +27,7 @@ export const MealItemForm = ({ id, onAddToCart }) => {
     }
 
     onAddToCart(Number(inputAmount));
-    setIsAmountValid(true); // Сброс валидности после успешного добавления
+    setIsAmountValid(true);
   };
 
   return (

@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoggedIn(!!user);
     });
 
-    return () => unsubscribe(); // Очистка при размонтировании
+    return () => unsubscribe();
   }, []);
 
   return (

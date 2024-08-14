@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Privacy.module.css";
 
 export const Privacy = () => {
-  // Функция для прокрутки к началу страницы
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -13,7 +12,6 @@ export const Privacy = () => {
 
   return (
     <div className={styles.privacy}>
-      {/* Добавляем onClick к заголовку h1 */}
       <h1 onClick={handleScrollToTop} style={{ cursor: "pointer" }}>
         Политика конфиденциальности
       </h1>
