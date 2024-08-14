@@ -47,28 +47,27 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Медиа-запрос для адаптации к экранам меньше 350px */
 @media (max-width: 350px) {
   .container {
-    flex-direction: column; /* Вертикальное расположение столбцов */
-    padding: 0 10px; /* Уменьшаем отступы по бокам */
+    flex-direction: column;
+    padding: 0 10px;
   }
 
   .column {
-    padding: 1em 0; /* Увеличиваем вертикальные отступы для лучшего восприятия */
-    flex: none; /* Убираем равномерное распределение */
-    width: 100%; /* Ширина столбцов на 100% */
+    padding: 1em 0;
+    flex: none;
+    width: 100%;
   }
 
   h2 {
-    font-size: 1.2rem; /* Уменьшаем размер заголовка */
+    font-size: 1.2rem;
   }
 
   li {
-    margin: 5px 0; /* Уменьшаем отступы для элементов списка */
+    margin: 5px 0;
   }
 
   .bottom {
-    padding: 10px 0; /* Уменьшаем отступы снизу и сверху */
+    padding: 10px 0;
   }
 }

@@ -43,18 +43,18 @@
   }
 
   .cart-item button {
-    font-size: 1.5rem; /* Размер текста кнопки для большого экрана */
-    width: 3rem; /* Ширина кнопки для большого экрана */
+    font-size: 1.5rem;
+    width: 3rem;
   }
 }
 
 .cart-item button {
   font: inherit;
   font-weight: bold;
-  font-size: 1.5rem; /* Начальный размер текста кнопки */
+  font-size: 1.5rem;
   color: #ffa500;
   border: 1px solid #ffa500;
-  width: 3rem; /* Начальная ширина кнопки */
+  width: 3rem;
   text-align: center;
   border-radius: 7px;
   background-color: transparent;

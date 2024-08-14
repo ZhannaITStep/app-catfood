@@ -54,7 +54,7 @@ const Auth = ({ onClose }) => {
           <button type="submit" className="auth-button">
             {isLoginMode ? "Войти" : "Создать аккаунт"}
           </button>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
           {/* Отображаем сообщение об ошибке */}
         </form>
         <button onClick={() => setIsLoginMode((prev) => !prev)}>
